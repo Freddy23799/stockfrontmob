@@ -9,18 +9,40 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: '#0B1B3A',
+    background: '#FFFFFF',
+    backgroundElement: '#F0F5FB',
+    backgroundSelected: '#DCEBFA',
+    textSecondary: '#53657E',
+    primary: '#208AEF',
+    primaryText: '#FFFFFF',
+    border: '#98AFCB',
+    progressTrack: '#D5E2F2',
+    danger: '#C62828',
+    success: '#15803D',
+    warning: '#B45309',
+    successBg: '#DCFCE7',
+    warningBg: '#FEF3C7',
+    dangerBg: '#FEE2E2',
+    infoBg: '#E0F2FE',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: '#EFF6FF',
+    background: '#07111F',
+    backgroundElement: '#0D1F33',
+    backgroundSelected: '#173A5C',
+    textSecondary: '#A9BAD1',
+    primary: '#69B9FF',
+    primaryText: '#07111F',
+    border: '#466A91',
+    progressTrack: '#1A3450',
+    danger: '#FCA5A5',
+    success: '#86EFAC',
+    warning: '#FCD34D',
+    successBg: '#12351F',
+    warningBg: '#42330F',
+    dangerBg: '#4A1D24',
+    infoBg: '#12385B',
   },
 } as const;
 
@@ -63,3 +85,9 @@ export const Spacing = {
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+/** Palette des graphiques (meme ordre que le site : --c1..--c6). */
+export const ChartColors = {
+  light: ['#208AEF', '#16A34A', '#F59E0B', '#8B5CF6', '#EF4444', '#06B6D4'],
+  dark: ['#69B9FF', '#4ADE80', '#FBBF24', '#A78BFA', '#F87171', '#22D3EE'],
+} as const;

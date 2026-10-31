@@ -1,0 +1,66 @@
+// GENERE par scripts/sync-i18n.sh depuis stockfrontweb/src/i18n/downloads.js : ne pas modifier ici.
+const KINDS = {
+  fr: { 'tailor/orders': 'Fiche de commande', 'tailor/workshop': 'Planning de l’atelier', 'tailor/measures': 'Fiche de mesures', 'tailor/collections': 'Collections et stock', 'salon/agenda': 'Agenda du salon', 'salon/commissions': 'Relevé de commissions', 'salon/payouts': 'Paiement de commissions', 'salon/clients': 'Fiche client', daily: 'Rapport du jour', sales: 'Rapport des ventes', 'stock-valuation': 'Valeur du stock', alerts: 'Alertes de stock', reorder: 'Réapprovisionnement', purchases: 'Achats',
+    'controlled-register': 'Registre des produits contrôlés', cash: 'Session de caisse', insurance: 'Tiers payant', documents: 'Reçu ou facture', 'parties/statement': 'Relevé de compte',
+    team: 'Équipe', staff: 'Personnel', 'payroll/cycles': 'Paie du personnel', 'payroll/receipts': 'Bulletin de paie', accounting: 'Comptabilité', operations: 'Journal des opérations', document: 'Document PDF' },
+  en: { 'tailor/orders': 'Order sheet', 'tailor/workshop': 'Workshop schedule', 'tailor/measures': 'Measurement sheet', 'tailor/collections': 'Collections and stock', 'salon/agenda': 'Salon agenda', 'salon/commissions': 'Commission statement', 'salon/payouts': 'Commission payment', 'salon/clients': 'Client file', daily: 'Daily report', sales: 'Sales report', 'stock-valuation': 'Stock valuation', alerts: 'Stock alerts', reorder: 'Reordering', purchases: 'Purchases',
+    'controlled-register': 'Controlled products register', cash: 'Cash session', insurance: 'Insurance claims', documents: 'Receipt or invoice', 'parties/statement': 'Account statement',
+    team: 'Team', staff: 'Staff', 'payroll/cycles': 'Payroll', 'payroll/receipts': 'Payslip', accounting: 'Accounting', operations: 'Operations log', document: 'PDF document' },
+  es: { 'tailor/orders': 'Ficha de pedido', 'tailor/workshop': 'Planificación del taller', 'tailor/measures': 'Ficha de medidas', 'tailor/collections': 'Colecciones e inventario', 'salon/agenda': 'Agenda del salón', 'salon/commissions': 'Extracto de comisiones', 'salon/payouts': 'Pago de comisiones', 'salon/clients': 'Ficha de cliente', daily: 'Informe del día', sales: 'Informe de ventas', 'stock-valuation': 'Valor del stock', alerts: 'Alertas de stock', reorder: 'Reposición', purchases: 'Compras',
+    'controlled-register': 'Registro de productos controlados', cash: 'Sesión de caja', insurance: 'Seguros', documents: 'Recibo o factura', 'parties/statement': 'Estado de cuenta',
+    team: 'Equipo', staff: 'Personal', 'payroll/cycles': 'Nómina', 'payroll/receipts': 'Recibo de nómina', accounting: 'Contabilidad', operations: 'Registro de operaciones', document: 'Documento PDF' },
+};
+const KINDS_FR = Object.fromEntries(Object.entries(KINDS.fr).map(([k, v]) => [`dl.kind.${k}`, v]));
+const KINDS_EN = Object.fromEntries(Object.entries(KINDS.en).map(([k, v]) => [`dl.kind.${k}`, v]));
+const KINDS_ES = Object.fromEntries(Object.entries(KINDS.es).map(([k, v]) => [`dl.kind.${k}`, v]));
+
+export default {
+  fr: {
+    'dl.nav': 'Téléchargements', 'dl.menuText': 'Vos 50 derniers documents, à retélécharger', 'dl.title': 'Mes téléchargements',
+    'dl.subtitle': 'Vos {max} derniers documents téléchargés. Retrouvez-les ici pour les réutiliser, sans les régénérer.',
+    'dl.count': '{count} sur {max}', 'dl.search': 'Rechercher un document…', 'dl.allTypes': 'Tous les types',
+    'dl.empty': 'Aucun téléchargement pour le moment', 'dl.emptyText': 'Chaque PDF que vous téléchargez (rapport, reçu, relevé…) apparaît ici automatiquement.',
+    'dl.noMatch': 'Aucun document ne correspond à votre recherche.',
+    'dl.today': 'Aujourd’hui', 'dl.yesterday': 'Hier', 'dl.downloadedAt': 'Téléchargé à {time}', 'dl.lastAt': 'Dernier téléchargement : {when}',
+    'dl.times_one': 'Téléchargé {count} fois', 'dl.times_other': 'Téléchargé {count} fois', 'dl.allShops': 'Toutes les boutiques',
+    'dl.again': 'Télécharger à nouveau', 'dl.againShort': 'Télécharger', 'dl.againHint': 'Le même fichier qu’à l’origine', 'dl.refresh': 'Mettre à jour', 'dl.refreshHint': 'Régénérer avec les données actuelles',
+    'dl.delete': 'Supprimer', 'dl.clear': 'Tout effacer',
+    'dl.deleteTitle': 'Supprimer ce téléchargement ?', 'dl.deleteText': 'Il disparaît de votre historique. Vous pourrez toujours régénérer le document depuis son écran.',
+    'dl.clearTitle': 'Effacer tout l’historique ?', 'dl.clearText': 'Les {count} documents de la liste seront supprimés de votre historique (ils ne sont pas supprimés de votre appareil).',
+    'dl.notKept': 'Fichier non conservé : utilisez « Mettre à jour » pour le récupérer.', 'dl.deleted': 'Supprimé de l’historique', 'dl.cleared': 'Historique effacé',
+    'dl.failed': 'Téléchargement impossible. Réessayez.', 'dl.private': 'Cette liste est personnelle : personne d’autre ne la voit.',
+    ...KINDS_FR,
+  },
+  en: {
+    'dl.nav': 'Downloads', 'dl.menuText': 'Your last 50 documents, ready to download again', 'dl.title': 'My downloads',
+    'dl.subtitle': 'Your last {max} downloaded documents. Find them here to reuse them, without regenerating.',
+    'dl.count': '{count} of {max}', 'dl.search': 'Search a document…', 'dl.allTypes': 'All types',
+    'dl.empty': 'No downloads yet', 'dl.emptyText': 'Every PDF you download (report, receipt, statement…) appears here automatically.',
+    'dl.noMatch': 'No document matches your search.',
+    'dl.today': 'Today', 'dl.yesterday': 'Yesterday', 'dl.downloadedAt': 'Downloaded at {time}', 'dl.lastAt': 'Last downloaded: {when}',
+    'dl.times_one': 'Downloaded {count} time', 'dl.times_other': 'Downloaded {count} times', 'dl.allShops': 'All shops',
+    'dl.again': 'Download again', 'dl.againShort': 'Download', 'dl.againHint': 'The same file as the original', 'dl.refresh': 'Update', 'dl.refreshHint': 'Regenerate with current data',
+    'dl.delete': 'Delete', 'dl.clear': 'Clear all',
+    'dl.deleteTitle': 'Delete this download?', 'dl.deleteText': 'It disappears from your history. You can always regenerate the document from its screen.',
+    'dl.clearTitle': 'Clear the whole history?', 'dl.clearText': 'The {count} documents in the list will be removed from your history (they are not deleted from your device).',
+    'dl.notKept': 'File not kept: use “Update” to get it back.', 'dl.deleted': 'Removed from history', 'dl.cleared': 'History cleared',
+    'dl.failed': 'Download failed. Please try again.', 'dl.private': 'This list is personal: nobody else can see it.',
+    ...KINDS_EN,
+  },
+  es: {
+    'dl.nav': 'Descargas', 'dl.menuText': 'Sus últimos 50 documentos, para descargar de nuevo', 'dl.title': 'Mis descargas',
+    'dl.subtitle': 'Sus últimos {max} documentos descargados. Encuéntrelos aquí para reutilizarlos, sin regenerarlos.',
+    'dl.count': '{count} de {max}', 'dl.search': 'Buscar un documento…', 'dl.allTypes': 'Todos los tipos',
+    'dl.empty': 'Aún no hay descargas', 'dl.emptyText': 'Cada PDF que descargue (informe, recibo, estado de cuenta…) aparece aquí automáticamente.',
+    'dl.noMatch': 'Ningún documento coincide con su búsqueda.',
+    'dl.today': 'Hoy', 'dl.yesterday': 'Ayer', 'dl.downloadedAt': 'Descargado a las {time}', 'dl.lastAt': 'Última descarga: {when}',
+    'dl.times_one': 'Descargado {count} vez', 'dl.times_other': 'Descargado {count} veces', 'dl.allShops': 'Todas las tiendas',
+    'dl.again': 'Descargar de nuevo', 'dl.againShort': 'Descargar', 'dl.againHint': 'El mismo archivo original', 'dl.refresh': 'Actualizar', 'dl.refreshHint': 'Regenerar con los datos actuales',
+    'dl.delete': 'Eliminar', 'dl.clear': 'Borrar todo',
+    'dl.deleteTitle': '¿Eliminar esta descarga?', 'dl.deleteText': 'Desaparece de su historial. Siempre puede regenerar el documento desde su pantalla.',
+    'dl.clearTitle': '¿Borrar todo el historial?', 'dl.clearText': 'Los {count} documentos de la lista se eliminarán de su historial (no se borran de su dispositivo).',
+    'dl.notKept': 'Archivo no conservado: use «Actualizar» para recuperarlo.', 'dl.deleted': 'Eliminado del historial', 'dl.cleared': 'Historial borrado',
+    'dl.failed': 'No se pudo descargar. Inténtelo de nuevo.', 'dl.private': 'Esta lista es personal: nadie más la ve.',
+    ...KINDS_ES,
+  },
+};

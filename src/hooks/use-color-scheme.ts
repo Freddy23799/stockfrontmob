@@ -1,1 +1,1 @@
-export { useColorScheme } from 'react-native';
+export { useResolvedScheme as useColorScheme } from '@/lib/theme';
